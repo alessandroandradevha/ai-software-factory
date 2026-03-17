@@ -1,0 +1,147 @@
+[
+  {
+    "id": 1,
+    "timestamp": "2026-03-17T01:54:56.594399",
+    "started_at": "2026-03-17T01:54:51.858829",
+    "stages": {
+      "idea": {
+        "name": "AI Habit Tracker",
+        "description": "Track habits with AI insights"
+      },
+      "plan": {
+        "name": "AI Habit Tracker",
+        "description": "Track habits with AI insights",
+        "target_audience": "individuals looking to improve their daily habits and routines",
+        "features": [
+          "Habit tracking with customizable goals and reminders",
+          "AI-powered insights and recommendations for habit improvement",
+          "Personalized habit coaching with machine learning algorithms",
+          "Integration with popular calendar and fitness apps",
+          "Social sharing and community features for motivation and support"
+        ],
+        "tech_stack": [
+          "Next.js",
+          "Supabase",
+          "Tailwind",
+          "TensorFlow.js",
+          "Google Cloud AI Platform"
+        ],
+        "monetization": "freemium model with in-app purchases and subscription-based premium features",
+        "complexity": "medium"
+      },
+      "architecture": {
+        "frontend": "Next.js",
+        "backend": "Node API",
+        "database": "Supabase",
+        "features": [
+          "Habit tracking with customizable goals and reminders",
+          "AI-powered insights and recommendations for habit improvement",
+          "Personalized habit coaching with machine learning algorithms",
+          "Integration with popular calendar and fitness apps",
+          "Social sharing and community features for motivation and support"
+        ]
+      },
+      "code_generated": true,
+      "review": {
+        "status": "pending",
+        "score": 70,
+        "issues": [
+          "Missing type definitions for habits, insights, and coaching states",
+          "Unused imports in some components",
+          "Supabase credentials are hardcoded"
+        ],
+        "suggestions": [
+          "Add type definitions for state variables",
+          "Remove unused imports",
+          "Use environment variables for Supabase credentials",
+          "Consider adding error handling for Supabase queries"
+        ]
+      },
+      "deployment": {
+        "status": "deployed",
+        "url": "https://example-app.vercel.app"
+      },
+      "analysis": {
+        "status": "deployed",
+        "recommendation": "scale"
+      }
+    },
+    "app_name": "AI Habit Tracker",
+    "app_path": null,
+    "status": "deployed",
+    "finished_at": "2026-03-17T01:54:56.594330"
+  },
+  {
+    "id": 2,
+    "timestamp": "2026-03-17T01:57:06.050103",
+    "started_at": "2026-03-17T01:57:01.587691",
+    "stages": {
+      "idea": {
+        "name": "AI Habit Tracker",
+        "description": "Track habits with AI insights"
+      },
+      "plan": {
+        "name": "AI Habit Tracker",
+        "description": "Track habits with AI insights",
+        "target_audience": "individuals looking to improve their daily habits and routines",
+        "features": [
+          "habit tracking",
+          "AI-powered insights and recommendations",
+          "personalized goal setting",
+          "reminders and notifications",
+          "progress analytics"
+        ],
+        "tech_stack": [
+          "Next.js",
+          "Supabase",
+          "Tailwind",
+          "TensorFlow.js"
+        ],
+        "monetization": "freemium model with in-app purchases and subscription-based premium features",
+        "complexity": "medium"
+      },
+      "architecture": {
+        "frontend": "Next.js",
+        "backend": "Node API",
+        "database": "Supabase",
+        "features": [
+          "habit tracking",
+          "AI-powered insights and recommendations",
+          "personalized goal setting",
+          "reminders and notifications",
+          "progress analytics"
+        ]
+      },
+      "code_generated": true,
+      "review": {
+        "status": "pending",
+        "score": 70,
+        "issues": [
+          "Missing import statements for HabitTracker, Insights, GoalSetting, Reminders, and ProgressAnalytics components",
+          "Supabase credentials are hardcoded in the db library",
+          "No error handling for Supabase queries",
+          "No loading state for data fetching"
+        ],
+        "suggestions": [
+          "Add import statements for missing components",
+          "Use environment variables for Supabase credentials",
+          "Implement error handling for Supabase queries",
+          "Add loading state for data fetching",
+          "Consider adding type annotations for component props"
+        ]
+      },
+      "deployment": {
+        "status": "deployed",
+        "url": "https://example-app.vercel.app"
+      },
+      "analysis": {
+        "status": "deployed",
+        "recommendation": "scale"
+      }
+    },
+    "app_name": "AI Habit Tracker",
+    "app_path": "apps/ai-habit-tracker",
+    "status": "deployed",
+    "finished_at": "2026-03-17T01:57:06.049849"
+  }
+]
