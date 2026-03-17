@@ -1,0 +1,35 @@
+name: AI Factory - Daily Run
+
+on:
+  schedule:
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+jobs:
+  run-factory:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install groq python-dotenv
+
+      - name: Run AI Factory Pipeline
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: python main.py
+
+      - name: Commit generated apps
+        run: |
+          git config --global user.name "AI Factory Bot"
+          git config --global user.email "bot@factory.ai"
+          git add apps/ data/
+          git diff --staged --quiet || git commit -m "AI Factory run $(date +%Y-%m-%d)"
+          git push
