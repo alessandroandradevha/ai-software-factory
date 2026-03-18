@@ -215,5 +215,120 @@
     "app_path": "apps/ai-habit-tracker",
     "status": "deployed",
     "finished_at": "2026-03-18T00:30:56.242374"
+  },
+  {
+    "id": 4,
+    "timestamp": "2026-03-18T02:09:30.090105",
+    "started_at": "2026-03-18T02:09:22.245342",
+    "stages": {
+      "plan": {
+        "name": "Invoice Generator SaaS",
+        "description": "SaaS para gerar faturas profissionais com PDF export",
+        "target_audience": "small to medium-sized businesses and freelancers",
+        "features": [
+          "customizable invoice templates",
+          "automatic tax calculation",
+          "multi-language support",
+          "PDF export",
+          "payment tracking",
+          "client management"
+        ],
+        "tech_stack": [
+          "Next.js",
+          "Supabase",
+          "Tailwind"
+        ],
+        "monetization": "subscription-based model with tiered pricing",
+        "complexity": "medium"
+      },
+      "architecture": {
+        "frontend": "Next.js",
+        "backend": "Node API",
+        "database": "Supabase",
+        "features": [
+          "customizable invoice templates",
+          "automatic tax calculation",
+          "multi-language support",
+          "PDF export",
+          "payment tracking",
+          "client management"
+        ]
+      },
+      "review": {
+        "score": 70,
+        "attempts": 3
+      },
+      "code_generated": true,
+      "deployment": {
+        "status": "deployed",
+        "url": "https://example-app.vercel.app"
+      },
+      "analysis": {
+        "status": "deployed",
+        "recommendation": "scale"
+      }
+    },
+    "app_name": "Invoice Generator SaaS",
+    "app_path": "apps/invoice-generator-saas",
+    "status": "deployed",
+    "finished_at": "2026-03-18T02:09:30.089934"
+  },
+  {
+    "id": 5,
+    "timestamp": "2026-03-18T02:13:32.063232",
+    "started_at": "2026-03-18T02:13:27.130965",
+    "stages": {
+      "plan": {
+        "name": "Invoice Generator SaaS",
+        "description": "SaaS para gerar faturas profissionais com PDF export",
+        "target_audience": "small to medium-sized businesses and freelancers",
+        "features": [
+          "Customizable invoice templates",
+          "Automatic tax calculation",
+          "Multi-language support",
+          "PDF export and print functionality",
+          "Client management and tracking",
+          "Payment tracking and reminders"
+        ],
+        "tech_stack": [
+          "Next.js",
+          "Supabase",
+          "Tailwind",
+          "Stripe for payment processing"
+        ],
+        "monetization": "Subscription-based model with tiered pricing plans",
+        "complexity": "medium"
+      },
+      "architecture": {
+        "frontend": "Next.js",
+        "backend": "Node API",
+        "database": "Supabase",
+        "features": [
+          "Customizable invoice templates",
+          "Automatic tax calculation",
+          "Multi-language support",
+          "PDF export and print functionality",
+          "Client management and tracking",
+          "Payment tracking and reminders"
+        ]
+      },
+      "review": {
+        "score": 80,
+        "attempts": 2
+      },
+      "code_generated": true,
+      "deployment": {
+        "status": "deployed",
+        "url": "https://example-app.vercel.app"
+      },
+      "analysis": {
+        "status": "deployed",
+        "recommendation": "scale"
+      }
+    },
+    "app_name": "Invoice Generator SaaS",
+    "app_path": "apps/invoice-generator-saas",
+    "status": "deployed",
+    "finished_at": "2026-03-18T02:13:32.062900"
   }
 ]

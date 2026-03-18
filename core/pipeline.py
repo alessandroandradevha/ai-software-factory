@@ -44,14 +44,15 @@ class SoftwareFactoryPipeline:
 
             if score > best_score:
                 best_score = score
-                best_code = best_code
 
             if score >= 80 or not issues:
                 print(f"  Code approved on attempt {attempt}")
                 break
 
             if attempt < 3:
-                best_code = fixer.fix_code(best_code, issues, attempt)
+                fixed = fixer.fix_code(best_code, issues, attempt)
+                if fixed and fixed != best_code:
+                    best_code = fixed
 
         result["stages"]["review"] = {"score": best_score, "attempts": attempt}
         result["stages"]["code_generated"] = True
