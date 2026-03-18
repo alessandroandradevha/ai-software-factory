@@ -143,5 +143,77 @@
     "app_path": "apps/ai-habit-tracker",
     "status": "deployed",
     "finished_at": "2026-03-17T01:57:06.049849"
+  },
+  {
+    "id": 3,
+    "timestamp": "2026-03-18T00:30:56.242467",
+    "started_at": "2026-03-18T00:30:51.124975",
+    "stages": {
+      "idea": {
+        "name": "AI Habit Tracker",
+        "description": "Track habits with AI insights"
+      },
+      "plan": {
+        "name": "AI Habit Tracker",
+        "description": "Track habits with AI insights",
+        "target_audience": "Individuals looking to build positive habits and improve their daily routines",
+        "features": [
+          "Habit tracking with customizable goals and reminders",
+          "AI-powered insights and recommendations for habit improvement",
+          "Personalized habit coaching with machine learning algorithms",
+          "Integrations with popular calendar and fitness apps",
+          "Social sharing and community features for motivation and accountability"
+        ],
+        "tech_stack": [
+          "Next.js",
+          "Supabase",
+          "Tailwind",
+          "TensorFlow.js",
+          "Google Cloud AI Platform"
+        ],
+        "monetization": "Freemium model with in-app purchases for premium features and subscription-based access to advanced AI insights",
+        "complexity": "medium"
+      },
+      "architecture": {
+        "frontend": "Next.js",
+        "backend": "Node API",
+        "database": "Supabase",
+        "features": [
+          "Habit tracking with customizable goals and reminders",
+          "AI-powered insights and recommendations for habit improvement",
+          "Personalized habit coaching with machine learning algorithms",
+          "Integrations with popular calendar and fitness apps",
+          "Social sharing and community features for motivation and accountability"
+        ]
+      },
+      "code_generated": true,
+      "review": {
+        "status": "pending",
+        "score": 70,
+        "issues": [
+          "Missing type definitions for user state",
+          "Lack of error handling in useEffect",
+          "Supabase credentials are hardcoded"
+        ],
+        "suggestions": [
+          "Add type definitions for user state",
+          "Implement error handling in useEffect",
+          "Use environment variables for Supabase credentials",
+          "Consider adding loading state for habits data"
+        ]
+      },
+      "deployment": {
+        "status": "deployed",
+        "url": "https://example-app.vercel.app"
+      },
+      "analysis": {
+        "status": "deployed",
+        "recommendation": "scale"
+      }
+    },
+    "app_name": "AI Habit Tracker",
+    "app_path": "apps/ai-habit-tracker",
+    "status": "deployed",
+    "finished_at": "2026-03-18T00:30:56.242374"
   }
 ]
