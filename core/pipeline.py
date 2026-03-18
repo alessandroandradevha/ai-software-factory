@@ -1,49 +1,75 @@
-from agents.decision_maker import DecisionMakerAgent
 from agents.planner import PlannerAgent
 from agents.architect import ArchitectAgent
 from agents.developer import DeveloperAgent
 from agents.reviewer import ReviewerAgent
+from agents.fixer import FixerAgent
 from agents.devops import DevOpsAgent
 from agents.analyst import AnalystAgent
 from core.file_writer import write_app_to_disk, save_execution_history
+from core.learning import load_history
 from datetime import datetime
 
 class SoftwareFactoryPipeline:
 
-    def run(self):
-        print("="*50)
+    def run(self, idea: dict) -> dict:
+        print("=" * 50)
         print("AI SOFTWARE FACTORY - PIPELINE START")
-        print("="*50)
-        result = {"started_at": datetime.now().isoformat(), "stages": {}}
-        print("[1/7] Decision Maker...")
-        idea = DecisionMakerAgent().choose_idea()
-        result["stages"]["idea"] = idea
-        result["app_name"] = idea["name"]
-        print("[2/7] Planner...")
+        print(f"App: {idea[chr(110)+chr(97)+chr(109)+chr(101)]}")
+        print("=" * 50)
+
+        result = {"started_at": datetime.now().isoformat(), "stages": {}, "app_name": idea["name"]}
+
+        print("[1/6] Planner...")
         plan = PlannerAgent().create_product_plan(idea)
         result["stages"]["plan"] = plan
-        print("[3/7] Architect...")
+
+        print("[2/6] Architect...")
         architecture = ArchitectAgent().design_architecture(plan)
         result["stages"]["architecture"] = architecture
-        print("[4/7] Developer...")
+
+        print("[3/6] Developer...")
         code = DeveloperAgent().generate_code(architecture)
-        result["stages"]["code_generated"] = bool(code and "error" not in code)
-        print("[5/7] Reviewer...")
-        review = ReviewerAgent().review_code(code)
-        result["stages"]["review"] = review
-        print("[6/7] Writing files...")
-        if review.get("status") in ["approved", "pending"]:
-            app_path = write_app_to_disk(idea["name"], code)
-            result["app_path"] = app_path
-        else:
-            result["app_path"] = None
-        print("[7/7] DevOps...")
-        deployment = DevOpsAgent().deploy_app(code)
-        result["stages"]["deployment"] = deployment
+
+        print("[4/6] Review + Fix loop (max 3 attempts)...")
+        fixer = FixerAgent()
+        reviewer = ReviewerAgent()
+        best_code = code
+        best_score = 0
+
+        for attempt in range(1, 4):
+            review = reviewer.review_code(best_code)
+            score = review.get("score", 0)
+            issues = review.get("issues", [])
+            print(f"  Attempt {attempt}/3 - Score: {score}/100 - Issues: {len(issues)}")
+
+            if score > best_score:
+                best_score = score
+                best_code = best_code
+
+            if score >= 80 or not issues:
+                print(f"  Code approved on attempt {attempt}")
+                break
+
+            if attempt < 3:
+                best_code = fixer.fix_code(best_code, issues, attempt)
+
+        result["stages"]["review"] = {"score": best_score, "attempts": attempt}
+        result["stages"]["code_generated"] = True
+
+        print("[5/6] Writing files...")
+        app_path = write_app_to_disk(idea["name"], best_code)
+        result["app_path"] = app_path
+
+        print("[6/6] DevOps...")
+        deployment = DevOpsAgent().deploy_app(best_code)
         analysis = AnalystAgent().analyze_results(deployment)
+        result["stages"]["deployment"] = deployment
         result["stages"]["analysis"] = analysis
         result["status"] = deployment.get("status", "unknown")
         result["finished_at"] = datetime.now().isoformat()
+
         save_execution_history(result)
-        print("PIPELINE COMPLETE - App:", idea["name"])
+        print("=" * 50)
+        print(f"DONE - Score: {best_score}/100 - App: {idea[chr(110)+chr(97)+chr(109)+chr(101)]}")
+        print("=" * 50)
         return result
