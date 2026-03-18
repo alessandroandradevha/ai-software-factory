@@ -1,45 +1,88 @@
 [
   {
     "module": 1,
-    "name": "Authentication Module",
-    "description": "Build login and registration functionality using Supabase authentication",
+    "name": "Stripe Integration Validation",
+    "description": "Fix and validate Stripe integration",
     "status": "done",
+    "files": [
+      "app/api/stripe/checkout/route.ts",
+      "app/api/stripe/webhook/route.ts",
+      "app/api/stripe/portal/route.ts",
+      "lib/premiumFeatures.ts",
+      "components/PremiumModal.tsx",
+      "next.config.ts"
+    ],
     "score": 70
   },
   {
     "module": 2,
-    "name": "Dashboard Module",
-    "description": "Create a dashboard page with an overview of client and invoice data",
-    "status": "pending"
+    "name": "i18n Completion",
+    "description": "Complete internationalization",
+    "status": "pending",
+    "files": [
+      "messages/*.json",
+      "app/[locale]/layout.tsx",
+      "middleware.ts"
+    ]
   },
   {
     "module": 3,
-    "name": "Client Management Module",
-    "description": "Develop a feature to add, edit, and delete client information",
-    "status": "pending"
+    "name": "Auth Flow Fix",
+    "description": "Fix authentication flow",
+    "status": "pending",
+    "files": [
+      "contexts/AuthContext.tsx",
+      "app/[locale]/oauth/callback/page.tsx",
+      "next.config.ts"
+    ]
   },
   {
     "module": 4,
-    "name": "Invoice Management Module",
-    "description": "Build functionality to create, edit, and delete invoices, including invoice items and totals",
-    "status": "pending"
+    "name": "Performance & Build Fix",
+    "description": "Fix build errors and optimize",
+    "status": "pending",
+    "files": [
+      "lib/store.ts",
+      "next.config.ts",
+      "tsconfig.json",
+      ".eslintrc.json"
+    ]
   },
   {
     "module": 5,
-    "name": "PDF Export Module",
-    "description": "Implement a feature to export invoices as PDF documents",
-    "status": "pending"
+    "name": "PWA & Deploy Preparation",
+    "description": "Prepare for production",
+    "status": "pending",
+    "files": [
+      "public/manifest.json",
+      "next.config.ts",
+      "app/layout.tsx",
+      ".env.example"
+    ]
   },
   {
     "module": 6,
-    "name": "Data Integration Module",
-    "description": "Integrate client and invoice data with Supabase database",
-    "status": "pending"
+    "name": "Groq AI Integration",
+    "description": "Verify Groq AI integration",
+    "status": "pending",
+    "files": [
+      "lib/groqAi.ts"
+    ]
   },
   {
     "module": 7,
-    "name": "UI Styling and Polish Module",
-    "description": "Apply Tailwind CSS to style the application and add polish to the UI",
-    "status": "pending"
+    "name": "Recharts Integration",
+    "description": "Verify Recharts integration",
+    "status": "pending",
+    "files": [
+      "components/Charts.tsx"
+    ]
+  },
+  {
+    "module": 8,
+    "name": "Final Testing and Deployment",
+    "description": "Test and deploy the application",
+    "status": "pending",
+    "files": []
   }
 ]

@@ -1,0 +1,74 @@
+
+Senseday.app v9.0.0 - Productivity SaaS (CONTINUATION PROJECT)
+
+IMPORTANT: This is NOT a new app. This is the continuation of an existing app.
+The codebase already exists at: /home/runner/Senseday.app/
+DO NOT recreate existing files. Only create/fix what is listed as PENDING below.
+
+TECH STACK (already implemented):
+- Next.js 14 App Router + TypeScript
+- Zustand (lib/store.ts)
+- Firebase Auth + Firestore
+- Stripe (checkout, portal, webhook routes exist)
+- Tailwind CSS
+- next-intl v3.15 (i18n for: pt-BR, en, es, fr, de, it)
+- Groq AI
+- Recharts
+- PWA support
+
+WHAT ALREADY EXISTS (DO NOT TOUCH):
+- All components in components/
+- All hooks in hooks/
+- Firebase config in lib/firebase/
+- Stripe API routes in app/api/stripe/
+- i18n messages in messages/ (all 6 languages)
+- middleware.ts with next-intl
+- lib/store.ts (Zustand)
+- All pages in app/[locale]/
+
+PENDING MODULES TO BUILD (in order):
+
+MODULE 1 - Stripe Integration Validation
+Fix and validate Stripe integration:
+- Verify app/api/stripe/checkout/route.ts handles price IDs correctly
+- Verify app/api/stripe/webhook/route.ts activates premium in Firestore
+- Verify app/api/stripe/portal/route.ts works correctly
+- Create lib/premiumFeatures.ts with proper feature gates
+- Ensure PremiumModal.tsx triggers checkout correctly
+- Add env validation: STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+
+MODULE 2 - i18n Completion
+Complete internationalization:
+- Verify all 6 message files have consistent keys (pt-BR, en, es, fr, de, it)
+- Fix any missing translation keys in messages/*.json
+- Ensure app/[locale]/layout.tsx loads translations correctly
+- Fix middleware.ts if needed
+- Test all routes work with locale prefix
+
+MODULE 3 - Auth Flow Fix
+Fix authentication flow:
+- Verify contexts/AuthContext.tsx handles Firebase Auth correctly
+- Fix app/[locale]/oauth/callback/page.tsx Google OAuth flow
+- Ensure useEffect cleanup on auth state changes
+- Fix Cross-Origin-Opener-Policy header in next.config.ts
+- Add proper loading states during auth
+
+MODULE 4 - Performance & Build Fix
+Fix build errors and optimize:
+- Fix any TypeScript errors blocking build
+- Fix missing imports across components
+- Optimize lib/store.ts - fix emotionalGoal persistence bug
+- Ensure npm run build completes without errors
+- Fix any ESLint errors blocking build
+
+MODULE 5 - PWA & Deploy Preparation  
+Prepare for production:
+- Verify public/manifest.json is complete
+- Verify service worker configuration
+- Add proper meta tags in app/layout.tsx
+- Create .env.example with all required variables
+- Verify next.config.ts has correct headers and settings
+
+OUTPUT FORMAT:
+For each module, return files that need to be CREATED or MODIFIED.
+Use the exact file paths from the existing project structure.
