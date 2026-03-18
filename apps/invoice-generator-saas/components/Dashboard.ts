@@ -4,84 +4,45 @@ import InvoiceTemplate from './InvoiceTemplate';
 import ClientManagement from './ClientManagement';
 import PaymentTracking from './PaymentTracking';
 
-interface Invoice {
-  id: number;
-  client_id: number;
-  payment_id: number;
-  total: number;
+interface DashboardProps {
 }
 
-interface Client {
-  id: number;
-  name: string;
-  email: string;
-}
-
-interface Payment {
-  id: number;
-  invoice_id: number;
-  amount: number;
-}
-
-const Dashboard = () => {
-  const [invoices, setInvoices] = useState<Invoice[]>([]);
-  const [clients, setClients] = useState<Client[]>([]);
-  const [payments, setPayments] = useState<Payment[]>([]);
-  const [error, setError] = useState<string | null>(null);
+const Dashboard: React.FC<DashboardProps> = () => {
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const fetchInvoices = async () => {
+    const fetchData = async () => {
       try {
-        const { data, error } = await supabase.from<Invoice>('invoices').select('*');
+        setIsLoading(true);
+        // Example of fetching data from supabase
+        const { data, error } = await supabase.from('table').select('*');
         if (error) {
-          setError(error.message);
-        } else {
-          setInvoices(data);
+          setError(error);
         }
       } catch (error) {
-        setError(error.message);
+        setError(error);
+      } finally {
+        setIsLoading(false);
       }
     };
-    const fetchClients = async () => {
-      try {
-        const { data, error } = await supabase.from<Client>('clients').select('*');
-        if (error) {
-          setError(error.message);
-        } else {
-          setClients(data);
-        }
-      } catch (error) {
-        setError(error.message);
-      }
-    };
-    const fetchPayments = async () => {
-      try {
-        const { data, error } = await supabase.from<Payment>('payments').select('*');
-        if (error) {
-          setError(error.message);
-        } else {
-          setPayments(data);
-        }
-      } catch (error) {
-        setError(error.message);
-      }
-    };
-    fetchInvoices();
-    fetchClients();
-    fetchPayments();
+    fetchData();
   }, []);
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div>Error: {error.message}</div>;
   }
 
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <InvoiceTemplate invoices={invoices} />
-      <ClientManagement clients={clients} />
-      <PaymentTracking payments={payments} />
-    </div>
+    <>
+      <InvoiceTemplate />
+      <ClientManagement />
+      <PaymentTracking />
+    </>
   );
 };
 
