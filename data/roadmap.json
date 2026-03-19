@@ -42,13 +42,14 @@
     "module": 4,
     "name": "Performance & Build Fix",
     "description": "Fix build errors and optimize",
-    "status": "pending",
+    "status": "done",
     "files": [
       "lib/store.ts",
       "next.config.ts",
       "tsconfig.json",
       ".eslintrc.json"
-    ]
+    ],
+    "score": 70
   },
   {
     "module": 5,
