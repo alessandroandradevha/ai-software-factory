@@ -30,12 +30,13 @@
     "module": 3,
     "name": "Auth Flow Fix",
     "description": "Fix authentication flow",
-    "status": "pending",
+    "status": "done",
     "files": [
       "contexts/AuthContext.tsx",
       "app/[locale]/oauth/callback/page.tsx",
       "next.config.ts"
-    ]
+    ],
+    "score": 80
   },
   {
     "module": 4,
