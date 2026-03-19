@@ -18,12 +18,13 @@
     "module": 2,
     "name": "i18n Completion",
     "description": "Complete internationalization",
-    "status": "pending",
+    "status": "done",
     "files": [
       "messages/*.json",
       "app/[locale]/layout.tsx",
       "middleware.ts"
-    ]
+    ],
+    "score": 80
   },
   {
     "module": 3,
