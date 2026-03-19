@@ -2,7 +2,7 @@ name: AI Factory - Daily Run
 
 on:
   schedule:
-    - cron: "0 7 * * *"
+    - cron: "0 7,15,23 * * *"
   workflow_dispatch:
 
 jobs:
@@ -34,5 +34,5 @@ jobs:
           git config --global user.name "AI Factory Bot"
           git config --global user.email "bot@factory.ai"
           git add apps/ data/
-          git diff --staged --quiet || git commit -m "AI Factory run $(date +%Y-%m-%d)"
-          git push
+          git diff --staged --quiet || git commit -m "AI Factory run $(date +%Y-%m-%d-%H%M)"
+          git push || echo "Push failed - will retry on next run"
