@@ -1,45 +1,39 @@
 [
   {
     "module": 1,
-    "name": "Critical Bugfix & Environment Setup",
-    "description": "Fix emotionalGoal onboarding bug by adding onboardingCompleted boolean to UserPreferences type. Create .env.example with all Firebase, Stripe, and Groq variables for deployment. Update lib/store.ts to use the new flag instead of !emotionalGoal check.",
+    "name": "Critical Bug Fixes & Environment Setup",
+    "description": "Create .env.example with all Firebase, Stripe, Groq variables. Add onboardingCompleted boolean to UserPreferences in types/index.ts. Update lib/store.ts to use onboardingCompleted flag instead of !emotionalGoal for isOnboarding logic.",
     "status": "done",
-    "score": 78
+    "score": 72
   },
   {
     "module": 2,
     "name": "SmartRescheduler Component",
-    "description": "Build components/ai/SmartRescheduler.tsx that detects overdue scheduled blocks on app load. Display bottom sheet with Groq AI-powered energy-aware rescheduling suggestions. Integrate with useStore() updateBlock to shift remaining day's tasks. Add to page.tsx after Header.",
+    "description": "Build components/ai/SmartRescheduler.tsx that detects overdue scheduled blocks on app load. Display bottom sheet offering AI-powered auto-reschedule using Groq. Intelligently redistribute remaining blocks considering energy patterns. Integrate into app/[locale]/page.tsx after Header.",
     "status": "pending"
   },
   {
     "module": 3,
-    "name": "SnoozeModal & ActionCard Integration",
-    "description": "Create components/modals/SnoozeModal.tsx with snooze options (5min, 15min, 30min, 1h, Later). Shift selected action and all subsequent blocks. Add Framer Motion slide-up animation and non-judgmental messaging. Modify ActionCard.tsx to include snooze button trigger.",
+    "name": "SnoozeModal & ActionCard Enhancement",
+    "description": "Create components/modals/SnoozeModal.tsx with quick snooze options (5min, 15min, 30min, 1h, Later). Shift selected action and all subsequent actions forward. Add encouraging non-judgmental messaging. Use Framer Motion for slide-up animation. Add snooze button to ActionCard.tsx.",
     "status": "pending"
   },
   {
     "module": 4,
-    "name": "SoundSystem & Haptic Feedback",
-    "description": "Build components/polish/SoundSystem.tsx with useSoundSystem() hook providing playSound('complete'|'start'|'snooze'|'achievement'). Implement Web Audio API for procedural sound generation (no external files). Add navigator.vibrate() for mobile haptics. Add soundEnabled toggle to SettingsPage.tsx.",
+    "name": "Sound & Haptic Feedback System",
+    "description": "Build components/polish/SoundSystem.tsx with useSoundSystem hook supporting playSound('complete'|'start'|'snooze'|'achievement'). Generate sounds via Web Audio API (no external files). Integrate navigator.vibrate() for mobile haptics. Add soundEnabled toggle to SettingsPage.tsx with user preferences persistence.",
     "status": "pending"
   },
   {
     "module": 5,
     "name": "Android-Optimized Install Banner",
-    "description": "Enhance components/InstallBanner.tsx with Android Chrome detection. Update messaging to highlight feature parity advantages over Structured app. Improve PWA installation UX with platform-specific guidance for Android users.",
+    "description": "Enhance components/InstallBanner.tsx with Android Chrome detection. Add messaging emphasizing all features available on Android (competitive advantage vs Structured). Improve PWA installation guidance with step-by-step Android-specific instructions.",
     "status": "pending"
   },
   {
     "module": 6,
     "name": "Structured.app Migration Banner",
-    "description": "Create components/onboarding/MigrationBanner.tsx shown once post-onboarding. Guide users to export from Structured and import to Senseday. Trigger existing ImportModal for seamless data migration.",
-    "status": "pending"
-  },
-  {
-    "module": 7,
-    "name": "Testing & Performance Polish",
-    "description": "End-to-end testing of all new modules. Verify emotionalGoal fix prevents onboarding loops. Performance audit for SmartRescheduler AI calls and SoundSystem latency. Cross-browser PWA validation on Android Chrome and desktop.",
+    "description": "Create components/onboarding/MigrationBanner.tsx displayed once post-onboarding. Guide users to export from Structured and import to Senseday. Trigger existing ImportModal workflow. Include incentive messaging for seamless transition.",
     "status": "pending"
   }
 ]
