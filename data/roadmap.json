@@ -10,7 +10,8 @@
     "module": 2,
     "name": "SmartRescheduler Component",
     "description": "Build components/ai/SmartRescheduler.tsx that detects overdue scheduled blocks on app load. Display bottom sheet offering AI-powered auto-reschedule using Groq. Intelligently redistribute remaining blocks considering energy patterns. Integrate into app/[locale]/page.tsx after Header.",
-    "status": "pending"
+    "status": "done",
+    "score": 75
   },
   {
     "module": 3,

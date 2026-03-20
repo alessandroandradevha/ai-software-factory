@@ -1,0 +1,27 @@
+{
+  "module": "SmartRescheduler Component",
+  "new_files": [
+    {
+      "file": "folder=root/.env.example",
+      "status": "NEW FILE",
+      "action": "Safe to copy directly"
+    }
+  ],
+  "modified_files": [
+    {
+      "file": "/components/modals/SnoozeModal.ts",
+      "status": "MODIFY EXISTING",
+      "action": "Review carefully before replacing"
+    },
+    {
+      "file": "/components/analysis/EnergyPattern.ts",
+      "status": "MODIFY EXISTING",
+      "action": "Review carefully before replacing"
+    }
+  ],
+  "instructions": [
+    "Copy the EnvVariables interface into the root folder's .env.example file to define the required environment variables for the SmartRescheduler Component",
+    "Replace the existing code in the .env.example file with the provided interface, ensuring to include all the necessary Firebase configuration variables",
+    "Update the modified files by adding the EnvExample React functional component to the relevant file, importing the necessary dependencies from the useStore and useAuth hooks"
+  ]
+}
