@@ -17,7 +17,8 @@
     "module": 3,
     "name": "SnoozeModal & ActionCard Enhancement",
     "description": "Create components/modals/SnoozeModal.tsx with quick snooze options (5min, 15min, 30min, 1h, Later). Shift selected action and all subsequent actions forward. Add encouraging non-judgmental messaging. Use Framer Motion for slide-up animation. Add snooze button to ActionCard.tsx.",
-    "status": "pending"
+    "status": "done",
+    "score": 90
   },
   {
     "module": 4,

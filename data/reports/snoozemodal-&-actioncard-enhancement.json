@@ -1,0 +1,26 @@
+{
+  "module": "SnoozeModal & ActionCard Enhancement",
+  "new_files": [],
+  "modified_files": [
+    {
+      "file": "/components/modals/SnoozeModal.ts",
+      "status": "MODIFY EXISTING",
+      "action": "Review carefully before replacing"
+    },
+    {
+      "file": "/components/cards/ActionCard.ts",
+      "status": "MODIFY EXISTING",
+      "action": "Review carefully before replacing"
+    },
+    {
+      "file": "/components/animations/SlideUpAnimation.ts",
+      "status": "MODIFY EXISTING",
+      "action": "Review carefully before replacing"
+    }
+  ],
+  "instructions": [
+    "Copy the SnoozeModal component into the components/modals directory, replacing the existing file if necessary",
+    "Update the import statements in the modified files to include the new SnoozeModal component, specifically in the files where the SnoozeModal is being used",
+    "Integrate the useStore and useAuth hooks into the SnoozeModal component by copying the necessary import statements and hook calls into the component function, ensuring to pass the required props to the SnoozeModal component"
+  ]
+}
