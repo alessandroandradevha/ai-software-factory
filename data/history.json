@@ -1468,5 +1468,84 @@
         "Import and render the InstallationInstructions component in your main application file, passing in the isOpen prop to control its visibility"
       ]
     }
+  },
+  {
+    "id": 23,
+    "timestamp": "2026-03-20T09:29:44.238605",
+    "started_at": "2026-03-20T09:29:37.147154",
+    "stages": {
+      "plan": {
+        "name": "Structured.app Migration Banner",
+        "description": "Guide users to export from Structured and import to Senseday with incentive messaging",
+        "target_audience": "Existing Structured.app users",
+        "features": [
+          "MigrationBanner component",
+          "onboarding workflow integration",
+          "ImportModal workflow trigger",
+          "incentive messaging"
+        ],
+        "tech_stack": [
+          "React",
+          "TypeScript",
+          "Next.js"
+        ],
+        "monetization": "In-app promotions and affiliate marketing",
+        "complexity": "medium"
+      },
+      "architecture": {
+        "frontend": "Next.js",
+        "backend": "Node API",
+        "database": "Supabase",
+        "features": [
+          "MigrationBanner component",
+          "onboarding workflow integration",
+          "ImportModal workflow trigger",
+          "incentive messaging"
+        ]
+      },
+      "review": {
+        "score": 85,
+        "attempts": 1
+      },
+      "code_generated": true,
+      "deployment": {
+        "status": "deployed",
+        "url": "https://example-app.vercel.app"
+      },
+      "analysis": {
+        "status": "deployed",
+        "recommendation": "scale"
+      }
+    },
+    "app_name": "Structured.app Migration Banner",
+    "app_path": "/tmp/Senseday.app",
+    "status": "deployed",
+    "finished_at": "2026-03-20T09:29:43.542049",
+    "integration_report": {
+      "module": "Structured.app Migration Banner",
+      "new_files": [],
+      "modified_files": [
+        {
+          "file": "/components/MigrationBanner.tsx",
+          "status": "MODIFY EXISTING",
+          "action": "Review carefully before replacing"
+        },
+        {
+          "file": "/components/modals/ImportModal.ts",
+          "status": "MODIFY EXISTING",
+          "action": "Review carefully before replacing"
+        },
+        {
+          "file": "/folder=root/env.example.ts",
+          "status": "MODIFY EXISTING",
+          "action": "Review carefully before replacing"
+        }
+      ],
+      "instructions": [
+        "Copy the MigrationBanner component into your components directory, replacing any existing files with the same name",
+        "Update your store and auth context to include the necessary user and migrationStatus properties, and isAuthenticated method",
+        "Import the MigrationBanner component into your application and render it with the onDismiss prop, such as onDismiss={() => console.log('Migration banner dismissed')}"
+      ]
+    }
   }
 ]

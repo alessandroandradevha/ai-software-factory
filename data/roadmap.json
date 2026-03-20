@@ -38,6 +38,7 @@
     "module": 6,
     "name": "Structured.app Migration Banner",
     "description": "Create components/onboarding/MigrationBanner.tsx displayed once post-onboarding. Guide users to export from Structured and import to Senseday. Trigger existing ImportModal workflow. Include incentive messaging for seamless transition.",
-    "status": "pending"
+    "status": "done",
+    "score": 85
   }
 ]

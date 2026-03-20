@@ -1,0 +1,26 @@
+{
+  "module": "Structured.app Migration Banner",
+  "new_files": [],
+  "modified_files": [
+    {
+      "file": "/components/MigrationBanner.tsx",
+      "status": "MODIFY EXISTING",
+      "action": "Review carefully before replacing"
+    },
+    {
+      "file": "/components/modals/ImportModal.ts",
+      "status": "MODIFY EXISTING",
+      "action": "Review carefully before replacing"
+    },
+    {
+      "file": "/folder=root/env.example.ts",
+      "status": "MODIFY EXISTING",
+      "action": "Review carefully before replacing"
+    }
+  ],
+  "instructions": [
+    "Copy the MigrationBanner component into your components directory, replacing any existing files with the same name",
+    "Update your store and auth context to include the necessary user and migrationStatus properties, and isAuthenticated method",
+    "Import the MigrationBanner component into your application and render it with the onDismiss prop, such as onDismiss={() => console.log('Migration banner dismissed')}"
+  ]
+}
