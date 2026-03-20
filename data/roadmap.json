@@ -1,71 +1,45 @@
 [
   {
     "module": 1,
-    "name": "Build Fix & Environment Setup",
-    "description": "Create .env.example with all Firebase, Stripe, Groq, and app configuration variables. Fix next.config.ts with Cross-Origin-Opener-Policy header for Google OAuth. Resolve any TypeScript errors blocking npm run build.",
-    "status": "done",
-    "score": 45
-  },
-  {
-    "module": 2,
-    "name": "i18n Completion",
-    "description": "Complete internationalization",
-    "status": "done",
-    "files": [
-      "messages/*.json",
-      "app/[locale]/layout.tsx",
-      "middleware.ts"
-    ],
-    "score": 80
-  },
-  {
-    "module": 3,
-    "name": "Auth Flow Fix",
-    "description": "Fix authentication flow",
-    "status": "done",
-    "files": [
-      "contexts/AuthContext.tsx",
-      "app/[locale]/oauth/callback/page.tsx",
-      "next.config.ts"
-    ],
-    "score": 80
-  },
-  {
-    "module": 4,
-    "name": "Performance & Build Fix",
-    "description": "Fix build errors and optimize",
-    "status": "done",
-    "files": [
-      "lib/store.ts",
-      "next.config.ts",
-      "tsconfig.json",
-      ".eslintrc.json"
-    ],
-    "score": 70
-  },
-  {
-    "module": 5,
-    "name": "Migration Flow from Structured",
-    "description": "Build components/onboarding/MigrationFlow.tsx to ask users in onboarding if coming from Structured. Provide specific import guide, highlight 5 Senseday advantages, and integrate with ImportModal. Plan 7-day email sequence template.",
+    "name": "Critical Bugfix & Environment Setup",
+    "description": "Fix emotionalGoal onboarding bug by adding onboardingCompleted boolean to UserPreferences type. Create .env.example with all Firebase, Stripe, and Groq variables for deployment. Update lib/store.ts to use the new flag instead of !emotionalGoal check.",
     "status": "done",
     "score": 78
   },
   {
+    "module": 2,
+    "name": "SmartRescheduler Component",
+    "description": "Build components/ai/SmartRescheduler.tsx that detects overdue scheduled blocks on app load. Display bottom sheet with Groq AI-powered energy-aware rescheduling suggestions. Integrate with useStore() updateBlock to shift remaining day's tasks. Add to page.tsx after Header.",
+    "status": "pending"
+  },
+  {
+    "module": 3,
+    "name": "SnoozeModal & ActionCard Integration",
+    "description": "Create components/modals/SnoozeModal.tsx with snooze options (5min, 15min, 30min, 1h, Later). Shift selected action and all subsequent blocks. Add Framer Motion slide-up animation and non-judgmental messaging. Modify ActionCard.tsx to include snooze button trigger.",
+    "status": "pending"
+  },
+  {
+    "module": 4,
+    "name": "SoundSystem & Haptic Feedback",
+    "description": "Build components/polish/SoundSystem.tsx with useSoundSystem() hook providing playSound('complete'|'start'|'snooze'|'achievement'). Implement Web Audio API for procedural sound generation (no external files). Add navigator.vibrate() for mobile haptics. Add soundEnabled toggle to SettingsPage.tsx.",
+    "status": "pending"
+  },
+  {
+    "module": 5,
+    "name": "Android-Optimized Install Banner",
+    "description": "Enhance components/InstallBanner.tsx with Android Chrome detection. Update messaging to highlight feature parity advantages over Structured app. Improve PWA installation UX with platform-specific guidance for Android users.",
+    "status": "pending"
+  },
+  {
     "module": 6,
-    "name": "Sound & Micro-feedback System",
-    "description": "Build components/polish/SoundSystem.tsx with configurable sounds for: complete task, start block, snooze, achievement. Add silent mode by time range, haptic feedback on mobile, and volume control in settings. Integrate with Zustand store.",
+    "name": "Structured.app Migration Banner",
+    "description": "Create components/onboarding/MigrationBanner.tsx shown once post-onboarding. Guide users to export from Structured and import to Senseday. Trigger existing ImportModal for seamless data migration.",
     "status": "pending"
   },
   {
     "module": 7,
-    "name": "Landing Page SEO & Competitive Positioning",
-    "description": "Create app/[locale]/landing/page.tsx with hero messaging 'The Structured alternative that works on Android'. Build feature comparison table (Senseday vs Structured), CTA for signup, and SEO optimization for keywords: 'structured android alternative', 'structured app web', 'task scheduler ADHD'.",
-    "status": "pending"
-  },
-  {
-    "module": 8,
-    "name": "Final Polish & Deploy Preparation",
-    "description": "Verify all 6 i18n message files (pt-BR, en, es, fr, de, it) have consistent keys. Fix missing translation keys. Confirm PWA icons exist in public/icons/. Add structured data JSON-LD for SEO. Run npm run build and verify zero errors. Complete final testing checklist.",
+    "name": "Testing & Performance Polish",
+    "description": "End-to-end testing of all new modules. Verify emotionalGoal fix prevents onboarding loops. Performance audit for SmartRescheduler AI calls and SoundSystem latency. Cross-browser PWA validation on Android Chrome and desktop.",
     "status": "pending"
   }
 ]

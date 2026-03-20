@@ -593,5 +593,480 @@
     "app_path": "apps/performance-&-build-fix",
     "status": "deployed",
     "finished_at": "2026-03-19T23:36:20.782461"
+  },
+  {
+    "id": 11,
+    "timestamp": "2026-03-20T00:36:13.025050",
+    "started_at": "2026-03-20T00:34:43.412151",
+    "stages": {
+      "plan": {
+        "name": "Critical Bug Fixes & Environment Setup",
+        "description": "Infrastructure update addressing critical bugs and establishing proper environment configuration with Firebase, Stripe, and Groq integration. Implements onboarding completion flag in user preferences and refactors store logic for accurate onboarding state management.",
+        "target_audience": "Development team and deployed application users experiencing onboarding state inconsistencies",
+        "features": [
+          "Create .env.example with Firebase, Stripe, and Groq configuration variables",
+          "Add onboardingCompleted boolean flag to UserPreferences interface",
+          "Update store.ts isOnboarding logic to use onboardingCompleted flag instead of emotionalGoal fallback",
+          "Improve environment variable documentation and setup process",
+          "Fix onboarding state persistence and retrieval",
+          "Validate third-party API configuration defaults"
+        ],
+        "tech_stack": [
+          "Next.js",
+          "TypeScript",
+          "Firebase",
+          "Stripe",
+          "Groq API",
+          "React Context/Store"
+        ],
+        "monetization": "Not applicable - internal infrastructure fix",
+        "complexity": "low"
+      },
+      "architecture": {
+        "frontend": "Next.js",
+        "backend": "Node API",
+        "database": "Supabase",
+        "features": [
+          "Create .env.example with Firebase, Stripe, and Groq configuration variables",
+          "Add onboardingCompleted boolean flag to UserPreferences interface",
+          "Update store.ts isOnboarding logic to use onboardingCompleted flag instead of emotionalGoal fallback",
+          "Improve environment variable documentation and setup process",
+          "Fix onboarding state persistence and retrieval",
+          "Validate third-party API configuration defaults"
+        ]
+      },
+      "review": {
+        "score": 72,
+        "attempts": 3
+      },
+      "code_generated": true,
+      "deployment": {
+        "status": "deployed",
+        "url": "https://example-app.vercel.app"
+      },
+      "analysis": {
+        "status": "deployed",
+        "recommendation": "scale"
+      }
+    },
+    "app_name": "Critical Bug Fixes & Environment Setup",
+    "app_path": "apps/critical-bug-fixes-&-environment-setup",
+    "status": "deployed",
+    "finished_at": "2026-03-20T00:36:13.024857"
+  },
+  {
+    "id": 12,
+    "timestamp": "2026-03-20T00:39:07.680353",
+    "started_at": "2026-03-20T00:38:43.049020",
+    "stages": {
+      "plan": {
+        "name": "Critical Bug Fixes & Environment Setup",
+        "description": "Infrastructure and configuration improvements for a full-stack application using Firebase, Stripe, and Groq. Implements proper environment variable management, enhances user onboarding state tracking, and refactors store logic for better maintainability.",
+        "target_audience": "Development teams using Firebase, Stripe, and Groq integrations who need to establish proper environment configuration and improve onboarding logic",
+        "features": [
+          "Generate .env.example template with Firebase, Stripe, and Groq variables",
+          "Add onboardingCompleted boolean field to UserPreferences TypeScript interface",
+          "Refactor store.ts to use explicit onboardingCompleted flag instead of derived emotionalGoal logic",
+          "Environment variable validation and documentation",
+          "Type-safe onboarding state management",
+          "Improved code maintainability through explicit state tracking"
+        ],
+        "tech_stack": [
+          "TypeScript",
+          "Next.js",
+          "Firebase",
+          "Stripe",
+          "Groq",
+          "React",
+          "Tailwind CSS"
+        ],
+        "monetization": "Not applicable - this is a technical implementation/refactoring task for existing applications",
+        "complexity": "low"
+      },
+      "architecture": {
+        "frontend": "Next.js",
+        "backend": "Node API",
+        "database": "Supabase",
+        "features": [
+          "Generate .env.example template with Firebase, Stripe, and Groq variables",
+          "Add onboardingCompleted boolean field to UserPreferences TypeScript interface",
+          "Refactor store.ts to use explicit onboardingCompleted flag instead of derived emotionalGoal logic",
+          "Environment variable validation and documentation",
+          "Type-safe onboarding state management",
+          "Improved code maintainability through explicit state tracking"
+        ]
+      },
+      "review": {
+        "score": 82,
+        "attempts": 1
+      },
+      "code_generated": true,
+      "deployment": {
+        "status": "deployed",
+        "url": "https://example-app.vercel.app"
+      },
+      "analysis": {
+        "status": "deployed",
+        "recommendation": "scale"
+      }
+    },
+    "app_name": "Critical Bug Fixes & Environment Setup",
+    "app_path": "apps/critical-bug-fixes-&-environment-setup",
+    "status": "deployed",
+    "finished_at": "2026-03-20T00:39:07.680017"
+  },
+  {
+    "id": 13,
+    "timestamp": "2026-03-20T00:58:07.845267",
+    "started_at": "2026-03-20T00:57:32.161861",
+    "stages": {
+      "plan": {
+        "name": "Critical Fixes: emotionalGoal Bug & .env.example",
+        "description": "Fix onboarding detection logic by adding onboardingCompleted boolean to UserPreferences type. Create .env.example with all required Firebase, Stripe, and Groq variables. Update lib/store.ts to use onboardingCompleted flag instead of !emotionalGoal check.",
+        "target_audience": "Development team maintaining the application codebase",
+        "features": [
+          "Add onboardingCompleted boolean to UserPreferences type definition",
+          "Create .env.example file with Firebase, Stripe, and Groq configuration variables",
+          "Update lib/store.ts to reference onboardingCompleted flag for onboarding detection",
+          "Remove reliance on !emotionalGoal check for onboarding logic",
+          "Implement proper type safety for onboarding state management",
+          "Document all required environment variables with examples"
+        ],
+        "tech_stack": [
+          "TypeScript",
+          "Firebase",
+          "Stripe",
+          "Groq API",
+          "React",
+          "Next.js"
+        ],
+        "monetization": "Internal development fix - no direct monetization",
+        "complexity": "low"
+      },
+      "architecture": {
+        "frontend": "Next.js",
+        "backend": "Node API",
+        "database": "Supabase",
+        "features": [
+          "Add onboardingCompleted boolean to UserPreferences type definition",
+          "Create .env.example file with Firebase, Stripe, and Groq configuration variables",
+          "Update lib/store.ts to reference onboardingCompleted flag for onboarding detection",
+          "Remove reliance on !emotionalGoal check for onboarding logic",
+          "Implement proper type safety for onboarding state management",
+          "Document all required environment variables with examples"
+        ]
+      },
+      "review": {
+        "score": 82,
+        "attempts": 2
+      },
+      "code_generated": true,
+      "deployment": {
+        "status": "deployed",
+        "url": "https://example-app.vercel.app"
+      },
+      "analysis": {
+        "status": "deployed",
+        "recommendation": "scale"
+      }
+    },
+    "app_name": "Critical Fixes: emotionalGoal Bug & .env.example",
+    "app_path": "apps/critical-fixes:-emotionalgoal-bug-and-.env.example",
+    "status": "deployed",
+    "finished_at": "2026-03-20T00:58:07.845034"
+  },
+  {
+    "id": 14,
+    "timestamp": "2026-03-20T01:01:47.937128",
+    "started_at": "2026-03-20T01:00:42.252206",
+    "stages": {
+      "plan": {
+        "name": "Critical Bug Fixes & Environment Setup",
+        "description": "Infrastructure and configuration management task addressing critical bugs and environment variable setup for Firebase, Stripe, and Groq integration, along with onboarding state management improvements",
+        "target_audience": "Development team, DevOps engineers, and full-stack developers maintaining the application",
+        "features": [
+          "Create and maintain .env.example template with Firebase configuration variables",
+          "Add and manage Stripe API keys and webhook configuration in environment setup",
+          "Configure Groq API variables for LLM integration",
+          "Add onboardingCompleted boolean flag to UserPreferences interface",
+          "Update store.ts to use onboardingCompleted flag for accurate onboarding state detection",
+          "Replace emotionalGoal-based onboarding logic with dedicated boolean flag",
+          "Environment variable validation and documentation",
+          "Type safety improvements through interface updates"
+        ],
+        "tech_stack": [
+          "TypeScript",
+          "Next.js",
+          "Firebase",
+          "Stripe",
+          "Groq API",
+          "State management library"
+        ],
+        "monetization": "Not applicable - internal infrastructure and bug fix release",
+        "complexity": "low"
+      },
+      "architecture": {
+        "frontend": "Next.js",
+        "backend": "Node API",
+        "database": "Supabase",
+        "features": [
+          "Create and maintain .env.example template with Firebase configuration variables",
+          "Add and manage Stripe API keys and webhook configuration in environment setup",
+          "Configure Groq API variables for LLM integration",
+          "Add onboardingCompleted boolean flag to UserPreferences interface",
+          "Update store.ts to use onboardingCompleted flag for accurate onboarding state detection",
+          "Replace emotionalGoal-based onboarding logic with dedicated boolean flag",
+          "Environment variable validation and documentation",
+          "Type safety improvements through interface updates"
+        ]
+      },
+      "review": {
+        "score": 72,
+        "attempts": 3
+      },
+      "code_generated": true,
+      "deployment": {
+        "status": "deployed",
+        "url": "https://example-app.vercel.app"
+      },
+      "analysis": {
+        "status": "deployed",
+        "recommendation": "scale"
+      }
+    },
+    "app_name": "Critical Bug Fixes & Environment Setup",
+    "app_path": "apps/critical-bug-fixes-and-environment-setup",
+    "status": "deployed",
+    "finished_at": "2026-03-20T01:01:47.936813"
+  },
+  {
+    "id": 15,
+    "timestamp": "2026-03-20T01:05:31.553342",
+    "started_at": "2026-03-20T01:05:06.449127",
+    "stages": {
+      "plan": {
+        "name": "Critical Bug Fixes & Environment Setup",
+        "description": "Infrastructure and configuration update for Firebase, Stripe, and Groq integration with improved onboarding state management",
+        "target_audience": "Development team maintaining the application",
+        "features": [
+          "Create .env.example template with Firebase, Stripe, and Groq variables",
+          "Add onboardingCompleted boolean field to UserPreferences interface",
+          "Update store logic to use explicit onboardingCompleted flag for onboarding state detection",
+          "Document required environment variables",
+          "Ensure backward compatibility with existing user preferences"
+        ],
+        "tech_stack": [
+          "Next.js",
+          "TypeScript",
+          "Firebase",
+          "Stripe",
+          "Groq API",
+          "React Store/Context"
+        ],
+        "monetization": "N/A - Internal infrastructure maintenance",
+        "complexity": "low"
+      },
+      "architecture": {
+        "frontend": "Next.js",
+        "backend": "Node API",
+        "database": "Supabase",
+        "features": [
+          "Create .env.example template with Firebase, Stripe, and Groq variables",
+          "Add onboardingCompleted boolean field to UserPreferences interface",
+          "Update store logic to use explicit onboardingCompleted flag for onboarding state detection",
+          "Document required environment variables",
+          "Ensure backward compatibility with existing user preferences"
+        ]
+      },
+      "review": {
+        "score": 85,
+        "attempts": 1
+      },
+      "code_generated": true,
+      "deployment": {
+        "status": "deployed",
+        "url": "https://example-app.vercel.app"
+      },
+      "analysis": {
+        "status": "deployed",
+        "recommendation": "scale"
+      }
+    },
+    "app_name": "Critical Bug Fixes & Environment Setup",
+    "app_path": "apps/critical-bug-fixes-and-environment-setup",
+    "status": "deployed",
+    "finished_at": "2026-03-20T01:05:31.553091"
+  },
+  {
+    "id": 16,
+    "timestamp": "2026-03-20T01:46:31.437721",
+    "started_at": "2026-03-20T01:45:04.851576",
+    "stages": {
+      "plan": {
+        "name": "Critical Bug Fix & Environment Setup",
+        "description": "Infrastructure and configuration updates to fix onboarding logic, establish proper environment variable management, and improve user preference tracking across Firebase, Stripe, and Groq integrations",
+        "target_audience": "Development team and DevOps engineers maintaining the application",
+        "features": [
+          "Create .env.example template with all required Firebase, Stripe, and Groq variables",
+          "Add onboardingCompleted boolean flag to UserPreferences type definition",
+          "Refactor isOnboarding logic to use onboardingCompleted flag instead of emotionalGoal check",
+          "Update lib/store.ts with corrected onboarding state management",
+          "Documentation for environment variable setup",
+          "Type safety improvements for user preferences"
+        ],
+        "tech_stack": [
+          "TypeScript",
+          "Next.js",
+          "Firebase",
+          "Stripe",
+          "Groq API",
+          "React"
+        ],
+        "monetization": "N/A - Internal infrastructure improvement",
+        "complexity": "low"
+      },
+      "architecture": {
+        "frontend": "Next.js",
+        "backend": "Node API",
+        "database": "Supabase",
+        "features": [
+          "Create .env.example template with all required Firebase, Stripe, and Groq variables",
+          "Add onboardingCompleted boolean flag to UserPreferences type definition",
+          "Refactor isOnboarding logic to use onboardingCompleted flag instead of emotionalGoal check",
+          "Update lib/store.ts with corrected onboarding state management",
+          "Documentation for environment variable setup",
+          "Type safety improvements for user preferences"
+        ]
+      },
+      "review": {
+        "score": 72,
+        "attempts": 3
+      },
+      "code_generated": true,
+      "deployment": {
+        "status": "deployed",
+        "url": "https://example-app.vercel.app"
+      },
+      "analysis": {
+        "status": "deployed",
+        "recommendation": "scale"
+      }
+    },
+    "app_name": "Critical Bug Fix & Environment Setup",
+    "app_path": "apps/critical-bug-fix-and-environment-setup",
+    "status": "deployed",
+    "finished_at": "2026-03-20T01:46:28.771161",
+    "integration_report": {
+      "module": "Critical Bug Fix & Environment Setup",
+      "new_files": [
+        {
+          "file": "root/.env.example",
+          "status": "NEW FILE",
+          "action": "Safe to copy directly"
+        },
+        {
+          "file": "lib/types",
+          "status": "NEW FILE",
+          "action": "Safe to copy directly"
+        },
+        {
+          "file": "lib/store",
+          "status": "NEW FILE",
+          "action": "Safe to copy directly"
+        }
+      ],
+      "modified_files": [],
+      "instructions": [
+        "Copy the .env.example file content to a new .env.local file in the project root directory, then replace all placeholder values (your_firebase_api_key_here, your_project_id, etc.) with actual Firebase credentials from your Firebase Console project settings.",
+        "Verify all NEXT_PUBLIC_* environment variables in .env.local match your Firebase project configuration exactly, including API_KEY, AUTH_DOMAIN, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDER_ID, APP_ID, and MEASUREMENT_ID - any mismatch will cause authentication failures.",
+        "Add .env.local to your .gitignore file to prevent committing sensitive credentials to version control, then restart your Next.js development server with npm run dev to load the new environment variables."
+      ]
+    }
+  },
+  {
+    "id": 17,
+    "timestamp": "2026-03-20T01:52:49.292560",
+    "started_at": "2026-03-20T01:51:48.700936",
+    "stages": {
+      "plan": {
+        "name": "Critical Bugfix & Environment Setup",
+        "description": "Fix emotionalGoal onboarding bug by adding onboardingCompleted boolean to UserPreferences type. Create .env.example with all Firebase, Stripe, and Groq variables for deployment. Update lib/store.ts to use the new flag instead of !emotionalGoal check.",
+        "target_audience": "Development team and DevOps engineers maintaining the application",
+        "features": [
+          "Add onboardingCompleted boolean flag to UserPreferences type",
+          "Create comprehensive .env.example file with Firebase, Stripe, and Groq configuration templates",
+          "Update lib/store.ts to reference onboardingCompleted instead of emotionalGoal logic",
+          "Fix onboarding flow state management",
+          "Document environment variable setup for deployment",
+          "Implement proper TypeScript types for onboarding state"
+        ],
+        "tech_stack": [
+          "TypeScript",
+          "Firebase",
+          "Stripe",
+          "Groq API",
+          "Next.js",
+          "State Management Library"
+        ],
+        "monetization": "Not applicable - internal development task",
+        "complexity": "low"
+      },
+      "architecture": {
+        "frontend": "Next.js",
+        "backend": "Node API",
+        "database": "Supabase",
+        "features": [
+          "Add onboardingCompleted boolean flag to UserPreferences type",
+          "Create comprehensive .env.example file with Firebase, Stripe, and Groq configuration templates",
+          "Update lib/store.ts to reference onboardingCompleted instead of emotionalGoal logic",
+          "Fix onboarding flow state management",
+          "Document environment variable setup for deployment",
+          "Implement proper TypeScript types for onboarding state"
+        ]
+      },
+      "review": {
+        "score": 78,
+        "attempts": 3
+      },
+      "code_generated": true,
+      "deployment": {
+        "status": "deployed",
+        "url": "https://example-app.vercel.app"
+      },
+      "analysis": {
+        "status": "deployed",
+        "recommendation": "scale"
+      }
+    },
+    "app_name": "Critical Bugfix & Environment Setup",
+    "app_path": "apps/critical-bugfix-and-environment-setup",
+    "status": "deployed",
+    "finished_at": "2026-03-20T01:52:47.004959",
+    "integration_report": {
+      "module": "Critical Bugfix & Environment Setup",
+      "new_files": [
+        {
+          "file": "types/UserPreferences",
+          "status": "NEW FILE",
+          "action": "Safe to copy directly"
+        },
+        {
+          "file": "root/.env.example",
+          "status": "NEW FILE",
+          "action": "Safe to copy directly"
+        },
+        {
+          "file": "lib/onboardingStore",
+          "status": "NEW FILE",
+          "action": "Safe to copy directly"
+        }
+      ],
+      "modified_files": [],
+      "instructions": [
+        "Copy the UserPreferences type definition from types/UserPreferences.ts into your project's src/types/ directory. Update any existing UserPreferences type imports to reference this new centralized definition to ensure consistency across all modules.",
+        "Add the UserPreferences type to your main types index file (src/types/index.ts) by adding the export statement: export type { UserPreferences } from './UserPreferences';",
+        "Update all user preference state management (Redux, Context, or Zustand store) to use the new UserPreferences type for proper TypeScript type checking. Replace any inline preference object type definitions with imports from the new types file to maintain a single source of truth."
+      ]
+    }
   }
 ]

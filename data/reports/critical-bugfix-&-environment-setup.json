@@ -1,0 +1,26 @@
+{
+  "module": "Critical Bugfix & Environment Setup",
+  "new_files": [
+    {
+      "file": "types/UserPreferences",
+      "status": "NEW FILE",
+      "action": "Safe to copy directly"
+    },
+    {
+      "file": "root/.env.example",
+      "status": "NEW FILE",
+      "action": "Safe to copy directly"
+    },
+    {
+      "file": "lib/onboardingStore",
+      "status": "NEW FILE",
+      "action": "Safe to copy directly"
+    }
+  ],
+  "modified_files": [],
+  "instructions": [
+    "Copy the UserPreferences type definition from types/UserPreferences.ts into your project's src/types/ directory. Update any existing UserPreferences type imports to reference this new centralized definition to ensure consistency across all modules.",
+    "Add the UserPreferences type to your main types index file (src/types/index.ts) by adding the export statement: export type { UserPreferences } from './UserPreferences';",
+    "Update all user preference state management (Redux, Context, or Zustand store) to use the new UserPreferences type for proper TypeScript type checking. Replace any inline preference object type definitions with imports from the new types file to maintain a single source of truth."
+  ]
+}

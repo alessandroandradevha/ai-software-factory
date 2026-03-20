@@ -4,6 +4,7 @@ from agents.developer import DeveloperAgent
 from agents.reviewer import ReviewerAgent
 from agents.fixer import FixerAgent
 from agents.devops import DevOpsAgent
+from agents.integrator import IntegratorAgent
 from agents.analyst import AnalystAgent
 from core.file_writer import write_app_to_disk, save_execution_history
 from core.learning import load_history
@@ -35,6 +36,7 @@ class SoftwareFactoryPipeline:
         reviewer = ReviewerAgent()
         best_code = code
         best_score = 0
+        best_snapshot = code
 
         for attempt in range(1, 4):
             review = reviewer.review_code(best_code)
@@ -44,6 +46,7 @@ class SoftwareFactoryPipeline:
 
             if score > best_score:
                 best_score = score
+                best_snapshot = best_code
 
             if score >= 80 or not issues:
                 print(f"  Code approved on attempt {attempt}")
@@ -53,6 +56,8 @@ class SoftwareFactoryPipeline:
                 fixed = fixer.fix_code(best_code, issues, attempt)
                 if fixed and fixed != best_code:
                     best_code = fixed
+
+        best_code = best_snapshot
 
         result["stages"]["review"] = {"score": best_score, "attempts": attempt}
         result["stages"]["code_generated"] = True
@@ -69,8 +74,16 @@ class SoftwareFactoryPipeline:
         result["status"] = deployment.get("status", "unknown")
         result["finished_at"] = datetime.now().isoformat()
 
+        # Integrator analisa e gera relatório
+        print("[7/7] Integrator analyzing...")
+        integrator = IntegratorAgent()
+        report = integrator.analyze(idea["name"], best_code)
+        integrator.save_report(report)
+        result["integration_report"] = report
+
         save_execution_history(result)
         print("=" * 50)
         print(f"DONE - Score: {best_score}/100 - App: {idea[chr(110)+chr(97)+chr(109)+chr(101)]}")
+        print(f"New files: {len(report[chr(110)+chr(101)+chr(119)+chr(95)+chr(102)+chr(105)+chr(108)+chr(101)+chr(115)])} | Files to modify: {len(report[chr(109)+chr(111)+chr(100)+chr(105)+chr(102)+chr(105)+chr(101)+chr(100)+chr(95)+chr(102)+chr(105)+chr(108)+chr(101)+chr(115)])}")
         print("=" * 50)
         return result

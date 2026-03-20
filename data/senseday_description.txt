@@ -1,103 +1,67 @@
+SENSEDAY v9.0.0 - PROFESSIONAL FINALIZATION PLAN
 
-SENSEDAY v9.0.0 - FINALIZATION PLAN - Superior to Structured.app
+EXISTING CODEBASE (DO NOT RECREATE - ANALYZED FROM GITHUB):
+Stack: Next.js 14, TypeScript, Zustand, Firebase, Stripe, Tailwind, Framer Motion, next-intl, Groq, Recharts, PWA
+All components exist in components/, hooks in hooks/, services in services/
+COOP header already configured in next.config.js
+i18n: 19 keys per language, all 6 languages consistent
 
-EXISTING TECH STACK (DO NOT RECREATE - ALREADY IMPLEMENTED):
-- Next.js 14 App Router + TypeScript
-- Zustand store with 20+ actions (lib/store.ts)
-- Firebase Auth + Firestore
-- Stripe (checkout/webhook/portal routes exist)
-- Tailwind CSS + Framer Motion
-- next-intl 6 languages (pt-BR, en, es, fr, de, it)
-- Groq AI, Recharts, PWA manifest
-- DragAndDrop hook, Energy Monitor, Focus Timer
-- InsightsDashboard, ExportModal, ImportModal
-- FeedbackForm, NPSSurvey, RoadmapView
-- 16 premium features defined
+IDENTIFIED BUGS:
+1. emotionalGoal bug: lib/store.ts uses !preferences.emotionalGoal for isOnboarding
+   Fix: Add onboardingCompleted boolean to UserPreferences in types/index.ts
 
-COMPETITIVE STRATEGY vs Structured.app:
-STRUCTURED WEAKNESSES (our opportunities):
-1. iCloud sync fails frequently -> Senseday uses Firebase (stable)
-2. Android/Web 40% behind iOS -> Senseday is PWA-first, full parity
-3. Terrible customer support -> Senseday needs 24h SLA support
-4. No CSV import -> ImportModal already exists, improve it
-5. Features only on iOS -> Cross-platform by design
+2. Missing .env.example - critical for deployment
 
-STRUCTURED STRENGTHS (we must match/beat):
-1. Visual timeline helps time blindness (ADHD users)
-2. Sound feedback when completing tasks
-3. AI auto-reschedule when running late (Structured 4.0)
-4. Inbox for quick capture
-5. Lifetime purchase option
+COMPETITIVE GAPS vs Structured.app:
+- Sound feedback on task completion (MISSING)
+- AI auto-reschedule when running late (MISSING - Structured 4.0 has this)
+- Android parity messaging (OPPORTUNITY)
 
-MODULE 1 - Build Fix & Environment (CRITICAL):
-Create .env.example with ALL required variables:
-NEXT_PUBLIC_FIREBASE_API_KEY, NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-NEXT_PUBLIC_FIREBASE_PROJECT_ID, NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID, NEXT_PUBLIC_FIREBASE_APP_ID,
-STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET,
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY, NEXT_PUBLIC_STRIPE_PRICE_MONTHLY,
-NEXT_PUBLIC_STRIPE_PRICE_ANNUAL, NEXT_PUBLIC_STRIPE_PRICE_LIFETIME,
-NEXT_PUBLIC_APP_URL, GROQ_API_KEY
-Fix next.config.ts: add Cross-Origin-Opener-Policy header for Google OAuth
-Fix any TypeScript errors blocking npm run build
+MODULE 1 - Fix emotionalGoal Bug + .env.example (CRITICAL):
+Create .env.example with Firebase, Stripe, Groq variables.
+Modify types/index.ts: add onboardingCompleted to UserPreferences.
+Modify lib/store.ts: use onboardingCompleted flag instead of !emotionalGoal.
 
-MODULE 2 - Smart AI Rescheduler (Beat Structured 4.0):
+MODULE 2 - SmartRescheduler Component:
 File: components/ai/SmartRescheduler.tsx
-Detect when current time has passed a scheduled block
-Ask: "You are running late. Auto-reschedule your day?"
-Options: Reschedule all / Just today / Ignore
-AI via Groq redistributes remaining blocks respecting energy levels
-Integration with useStore() blocks
-Toast confirmation with preview of changes
+On app load, detect if current time has passed any scheduled block.
+Show bottom sheet asking to auto-reschedule remaining day.
+Use updateBlock from useStore() to shift future blocks.
+Use Groq AI for intelligent energy-aware redistribution.
+Add to app/[locale]/page.tsx after Header component.
 
-MODULE 3 - Task Snooze with Cascade:
+MODULE 3 - SnoozeModal Component:
 File: components/modals/SnoozeModal.tsx
-Snooze button on every action card
-Options: 5min, 10min, 15min, 30min, 1h, later
-When snoozed: ALL following blocks shift automatically
-Visual indicator for snoozed tasks
-Non-judgmental encouraging message on snooze
-Framer Motion animation
+Bottom sheet with options: 5min, 15min, 30min, 1h, Later.
+Shifts selected action AND all subsequent actions.
+Shows encouraging non-judgmental message.
+Uses Framer Motion slide-up animation.
+Modify components/ActionCard.tsx to add snooze button.
 
-MODULE 4 - Support System (Fix Structured biggest complaint):
-File: components/feedback/SupportWidget.tsx
-In-app support widget
-Bug report with automatic app state capture
-Feature request voting integrated with existing RoadmapView
-SLA message: Response within 24h
-
-MODULE 5 - Migration Flow from Structured:
-File: components/onboarding/MigrationFlow.tsx
-Question in onboarding: Coming from Structured?
-Specific import guide for Structured ex-users
-Highlight 5 advantages of Senseday over Structured
-7-day email sequence for new users
-
-MODULE 6 - Sound & Micro-feedback:
+MODULE 4 - SoundSystem Hook:
 File: components/polish/SoundSystem.tsx
-Configurable sounds: complete task, start block, snooze, achievement
-Silent mode by time range
-Haptic feedback on mobile
-Volume control in settings
+Hook: useSoundSystem() with playSound('complete'|'start'|'snooze'|'achievement').
+Uses Web Audio API to generate sounds (no external files).
+navigator.vibrate() for mobile haptic feedback.
+Add soundEnabled toggle to SettingsPage.tsx.
 
-MODULE 7 - Landing Page SEO:
-File: app/[locale]/landing/page.tsx
-Separate landing page (route /landing)
-Hero: The Structured alternative that works on Android
-Feature comparison Senseday vs Structured
-CTA for signup
-SEO for: structured android alternative, structured app web
+MODULE 5 - Improved InstallBanner for Android:
+Modify components/InstallBanner.tsx.
+Detect Android Chrome users specifically.
+Message targeting: all features available on Android unlike Structured.
+Better PWA install guide.
 
-MODULE 8 - Final Polish & Deploy Prep:
-Verify all 6 i18n message files have consistent keys
-Fix any missing translation keys
-Verify PWA icons exist in public/icons/
-Add structured data JSON-LD for SEO
-Verify npm run build completes without errors
+MODULE 6 - MigrationBanner from Structured:
+File: components/onboarding/MigrationBanner.tsx
+Show once after onboarding.
+Guide to export from Structured and import to Senseday.
+Triggers existing ImportModal.
 
-OUTPUT FORMAT:
-TypeScript/React for Next.js 14 App Router
-Use existing Tailwind CSS design system
-Import from existing lib/store.ts
-Follow existing component patterns
-DO NOT modify existing working files unless fixing a bug
+CODING RULES:
+- Use 'use client' for interactive components
+- Import useStore from '@/lib/store'
+- CSS vars: var(--bg-primary), var(--text-primary), var(--border-default)
+- Tailwind for layout, CSS vars for colors
+- lucide-react for icons, framer-motion for animations
+- Always define TypeScript interfaces for props
+- DO NOT recreate existing components
