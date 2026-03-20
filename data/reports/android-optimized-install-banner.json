@@ -1,0 +1,26 @@
+{
+  "module": "Android-Optimized Install Banner",
+  "new_files": [],
+  "modified_files": [
+    {
+      "file": "/components/modals/InstallationInstructions.ts",
+      "status": "MODIFY EXISTING",
+      "action": "Review carefully before replacing"
+    },
+    {
+      "file": "/utils/detect/BrowserDetector.ts",
+      "status": "MODIFY EXISTING",
+      "action": "Review carefully before replacing"
+    },
+    {
+      "file": "/components/headers/CompetitiveAdvantage.ts",
+      "status": "MODIFY EXISTING",
+      "action": "Review carefully before replacing"
+    }
+  ],
+  "instructions": [
+    "Copy the InstallationInstructions component into your modals directory, replacing any existing file with the same name",
+    "Update your store to include the installationInstructions property, which will be used to populate the InstallationInstructions component",
+    "Import and render the InstallationInstructions component in your main application file, passing in the isOpen prop to control its visibility"
+  ]
+}
