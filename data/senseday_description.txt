@@ -1,74 +1,103 @@
 
-Senseday.app v9.0.0 - Productivity SaaS (CONTINUATION PROJECT)
+SENSEDAY v9.0.0 - FINALIZATION PLAN - Superior to Structured.app
 
-IMPORTANT: This is NOT a new app. This is the continuation of an existing app.
-The codebase already exists at: /home/runner/Senseday.app/
-DO NOT recreate existing files. Only create/fix what is listed as PENDING below.
-
-TECH STACK (already implemented):
+EXISTING TECH STACK (DO NOT RECREATE - ALREADY IMPLEMENTED):
 - Next.js 14 App Router + TypeScript
-- Zustand (lib/store.ts)
+- Zustand store with 20+ actions (lib/store.ts)
 - Firebase Auth + Firestore
-- Stripe (checkout, portal, webhook routes exist)
-- Tailwind CSS
-- next-intl v3.15 (i18n for: pt-BR, en, es, fr, de, it)
-- Groq AI
-- Recharts
-- PWA support
+- Stripe (checkout/webhook/portal routes exist)
+- Tailwind CSS + Framer Motion
+- next-intl 6 languages (pt-BR, en, es, fr, de, it)
+- Groq AI, Recharts, PWA manifest
+- DragAndDrop hook, Energy Monitor, Focus Timer
+- InsightsDashboard, ExportModal, ImportModal
+- FeedbackForm, NPSSurvey, RoadmapView
+- 16 premium features defined
 
-WHAT ALREADY EXISTS (DO NOT TOUCH):
-- All components in components/
-- All hooks in hooks/
-- Firebase config in lib/firebase/
-- Stripe API routes in app/api/stripe/
-- i18n messages in messages/ (all 6 languages)
-- middleware.ts with next-intl
-- lib/store.ts (Zustand)
-- All pages in app/[locale]/
+COMPETITIVE STRATEGY vs Structured.app:
+STRUCTURED WEAKNESSES (our opportunities):
+1. iCloud sync fails frequently -> Senseday uses Firebase (stable)
+2. Android/Web 40% behind iOS -> Senseday is PWA-first, full parity
+3. Terrible customer support -> Senseday needs 24h SLA support
+4. No CSV import -> ImportModal already exists, improve it
+5. Features only on iOS -> Cross-platform by design
 
-PENDING MODULES TO BUILD (in order):
+STRUCTURED STRENGTHS (we must match/beat):
+1. Visual timeline helps time blindness (ADHD users)
+2. Sound feedback when completing tasks
+3. AI auto-reschedule when running late (Structured 4.0)
+4. Inbox for quick capture
+5. Lifetime purchase option
 
-MODULE 1 - Stripe Integration Validation
-Fix and validate Stripe integration:
-- Verify app/api/stripe/checkout/route.ts handles price IDs correctly
-- Verify app/api/stripe/webhook/route.ts activates premium in Firestore
-- Verify app/api/stripe/portal/route.ts works correctly
-- Create lib/premiumFeatures.ts with proper feature gates
-- Ensure PremiumModal.tsx triggers checkout correctly
-- Add env validation: STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+MODULE 1 - Build Fix & Environment (CRITICAL):
+Create .env.example with ALL required variables:
+NEXT_PUBLIC_FIREBASE_API_KEY, NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+NEXT_PUBLIC_FIREBASE_PROJECT_ID, NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID, NEXT_PUBLIC_FIREBASE_APP_ID,
+STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET,
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY, NEXT_PUBLIC_STRIPE_PRICE_MONTHLY,
+NEXT_PUBLIC_STRIPE_PRICE_ANNUAL, NEXT_PUBLIC_STRIPE_PRICE_LIFETIME,
+NEXT_PUBLIC_APP_URL, GROQ_API_KEY
+Fix next.config.ts: add Cross-Origin-Opener-Policy header for Google OAuth
+Fix any TypeScript errors blocking npm run build
 
-MODULE 2 - i18n Completion
-Complete internationalization:
-- Verify all 6 message files have consistent keys (pt-BR, en, es, fr, de, it)
-- Fix any missing translation keys in messages/*.json
-- Ensure app/[locale]/layout.tsx loads translations correctly
-- Fix middleware.ts if needed
-- Test all routes work with locale prefix
+MODULE 2 - Smart AI Rescheduler (Beat Structured 4.0):
+File: components/ai/SmartRescheduler.tsx
+Detect when current time has passed a scheduled block
+Ask: "You are running late. Auto-reschedule your day?"
+Options: Reschedule all / Just today / Ignore
+AI via Groq redistributes remaining blocks respecting energy levels
+Integration with useStore() blocks
+Toast confirmation with preview of changes
 
-MODULE 3 - Auth Flow Fix
-Fix authentication flow:
-- Verify contexts/AuthContext.tsx handles Firebase Auth correctly
-- Fix app/[locale]/oauth/callback/page.tsx Google OAuth flow
-- Ensure useEffect cleanup on auth state changes
-- Fix Cross-Origin-Opener-Policy header in next.config.ts
-- Add proper loading states during auth
+MODULE 3 - Task Snooze with Cascade:
+File: components/modals/SnoozeModal.tsx
+Snooze button on every action card
+Options: 5min, 10min, 15min, 30min, 1h, later
+When snoozed: ALL following blocks shift automatically
+Visual indicator for snoozed tasks
+Non-judgmental encouraging message on snooze
+Framer Motion animation
 
-MODULE 4 - Performance & Build Fix
-Fix build errors and optimize:
-- Fix any TypeScript errors blocking build
-- Fix missing imports across components
-- Optimize lib/store.ts - fix emotionalGoal persistence bug
-- Ensure npm run build completes without errors
-- Fix any ESLint errors blocking build
+MODULE 4 - Support System (Fix Structured biggest complaint):
+File: components/feedback/SupportWidget.tsx
+In-app support widget
+Bug report with automatic app state capture
+Feature request voting integrated with existing RoadmapView
+SLA message: Response within 24h
 
-MODULE 5 - PWA & Deploy Preparation  
-Prepare for production:
-- Verify public/manifest.json is complete
-- Verify service worker configuration
-- Add proper meta tags in app/layout.tsx
-- Create .env.example with all required variables
-- Verify next.config.ts has correct headers and settings
+MODULE 5 - Migration Flow from Structured:
+File: components/onboarding/MigrationFlow.tsx
+Question in onboarding: Coming from Structured?
+Specific import guide for Structured ex-users
+Highlight 5 advantages of Senseday over Structured
+7-day email sequence for new users
+
+MODULE 6 - Sound & Micro-feedback:
+File: components/polish/SoundSystem.tsx
+Configurable sounds: complete task, start block, snooze, achievement
+Silent mode by time range
+Haptic feedback on mobile
+Volume control in settings
+
+MODULE 7 - Landing Page SEO:
+File: app/[locale]/landing/page.tsx
+Separate landing page (route /landing)
+Hero: The Structured alternative that works on Android
+Feature comparison Senseday vs Structured
+CTA for signup
+SEO for: structured android alternative, structured app web
+
+MODULE 8 - Final Polish & Deploy Prep:
+Verify all 6 i18n message files have consistent keys
+Fix any missing translation keys
+Verify PWA icons exist in public/icons/
+Add structured data JSON-LD for SEO
+Verify npm run build completes without errors
 
 OUTPUT FORMAT:
-For each module, return files that need to be CREATED or MODIFIED.
-Use the exact file paths from the existing project structure.
+TypeScript/React for Next.js 14 App Router
+Use existing Tailwind CSS design system
+Import from existing lib/store.ts
+Follow existing component patterns
+DO NOT modify existing working files unless fixing a bug

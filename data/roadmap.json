@@ -1,18 +1,10 @@
 [
   {
     "module": 1,
-    "name": "Stripe Integration Validation",
-    "description": "Fix and validate Stripe integration",
+    "name": "Build Fix & Environment Setup",
+    "description": "Create .env.example with all Firebase, Stripe, Groq, and app configuration variables. Fix next.config.ts with Cross-Origin-Opener-Policy header for Google OAuth. Resolve any TypeScript errors blocking npm run build.",
     "status": "done",
-    "files": [
-      "app/api/stripe/checkout/route.ts",
-      "app/api/stripe/webhook/route.ts",
-      "app/api/stripe/portal/route.ts",
-      "lib/premiumFeatures.ts",
-      "components/PremiumModal.tsx",
-      "next.config.ts"
-    ],
-    "score": 70
+    "score": 45
   },
   {
     "module": 2,
@@ -53,39 +45,27 @@
   },
   {
     "module": 5,
-    "name": "PWA & Deploy Preparation",
-    "description": "Prepare for production",
-    "status": "pending",
-    "files": [
-      "public/manifest.json",
-      "next.config.ts",
-      "app/layout.tsx",
-      ".env.example"
-    ]
+    "name": "Migration Flow from Structured",
+    "description": "Build components/onboarding/MigrationFlow.tsx to ask users in onboarding if coming from Structured. Provide specific import guide, highlight 5 Senseday advantages, and integrate with ImportModal. Plan 7-day email sequence template.",
+    "status": "done",
+    "score": 78
   },
   {
     "module": 6,
-    "name": "Groq AI Integration",
-    "description": "Verify Groq AI integration",
-    "status": "pending",
-    "files": [
-      "lib/groqAi.ts"
-    ]
+    "name": "Sound & Micro-feedback System",
+    "description": "Build components/polish/SoundSystem.tsx with configurable sounds for: complete task, start block, snooze, achievement. Add silent mode by time range, haptic feedback on mobile, and volume control in settings. Integrate with Zustand store.",
+    "status": "pending"
   },
   {
     "module": 7,
-    "name": "Recharts Integration",
-    "description": "Verify Recharts integration",
-    "status": "pending",
-    "files": [
-      "components/Charts.tsx"
-    ]
+    "name": "Landing Page SEO & Competitive Positioning",
+    "description": "Create app/[locale]/landing/page.tsx with hero messaging 'The Structured alternative that works on Android'. Build feature comparison table (Senseday vs Structured), CTA for signup, and SEO optimization for keywords: 'structured android alternative', 'structured app web', 'task scheduler ADHD'.",
+    "status": "pending"
   },
   {
     "module": 8,
-    "name": "Final Testing and Deployment",
-    "description": "Test and deploy the application",
-    "status": "pending",
-    "files": []
+    "name": "Final Polish & Deploy Preparation",
+    "description": "Verify all 6 i18n message files (pt-BR, en, es, fr, de, it) have consistent keys. Fix missing translation keys. Confirm PWA icons exist in public/icons/. Add structured data JSON-LD for SEO. Run npm run build and verify zero errors. Complete final testing checklist.",
+    "status": "pending"
   }
 ]
