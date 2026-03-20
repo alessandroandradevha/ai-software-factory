@@ -47,7 +47,10 @@ def write_to_project(code, project_path):
             for filename, content in files.items():
                 clean = clean_filename(filename)
                 ext = get_extension(folder, clean)
-                file_path = os.path.join(project_path, folder, f'{clean}{ext}')
+                if folder == 'root':
+                    file_path = os.path.join(project_path, f'{clean}{ext}')
+                else:
+                    file_path = os.path.join(project_path, folder, f'{clean}{ext}')
                 os.makedirs(os.path.dirname(file_path), exist_ok=True)
                 with open(file_path, 'w', encoding='utf-8') as wf:
                     wf.write(str(content))
