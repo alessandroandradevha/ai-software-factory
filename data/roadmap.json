@@ -24,7 +24,8 @@
     "module": 4,
     "name": "Sound & Haptic Feedback System",
     "description": "Build components/polish/SoundSystem.tsx with useSoundSystem hook supporting playSound('complete'|'start'|'snooze'|'achievement'). Generate sounds via Web Audio API (no external files). Integrate navigator.vibrate() for mobile haptics. Add soundEnabled toggle to SettingsPage.tsx with user preferences persistence.",
-    "status": "pending"
+    "status": "done",
+    "score": 85
   },
   {
     "module": 5,

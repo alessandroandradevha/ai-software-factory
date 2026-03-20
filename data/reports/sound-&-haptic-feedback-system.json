@@ -1,0 +1,26 @@
+{
+  "module": "Sound & Haptic Feedback System",
+  "new_files": [],
+  "modified_files": [
+    {
+      "file": "/folder=root/env.example.ts",
+      "status": "MODIFY EXISTING",
+      "action": "Review carefully before replacing"
+    },
+    {
+      "file": "/components/sound/SoundEffects.ts",
+      "status": "MODIFY EXISTING",
+      "action": "Review carefully before replacing"
+    },
+    {
+      "file": "/utils/audio/SoundGenerator.ts",
+      "status": "MODIFY EXISTING",
+      "action": "Review carefully before replacing"
+    }
+  ],
+  "instructions": [
+    "Copy the EnvExampleProps interface from the env.example file and paste it into the SoundAndHapticFeedbackSystem.ts file to define the props for the EnvExample component",
+    "Replace the existing userPreferences import in the SoundAndHapticFeedbackSystem.ts file with the const { userPreferences } = useStore() line from the env.example file",
+    "Update the SoundAndHapticFeedbackSystem.tsx file by wrapping its content with the div element from the env.example file, which includes the dynamic styles for backgroundColor, color, and border"
+  ]
+}
