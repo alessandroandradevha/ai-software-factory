@@ -63,7 +63,15 @@ class SoftwareFactoryPipeline:
         result["stages"]["code_generated"] = True
 
         print("[5/6] Writing files...")
-        app_path = write_app_to_disk(idea["name"], best_code)
+        import os
+        senseday_path = os.environ.get("SENSEDAY_PATH")
+        if senseday_path and os.path.exists(senseday_path):
+            print(f"  Writing directly to Senseday: {senseday_path}")
+            from core.file_writer import write_to_project
+            write_to_project(best_code, senseday_path)
+            app_path = senseday_path
+        else:
+            app_path = write_app_to_disk(idea["name"], best_code)
         result["app_path"] = app_path
 
         print("[6/6] DevOps...")
